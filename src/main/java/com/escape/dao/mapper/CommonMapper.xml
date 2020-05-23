@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="com.escape.dao.CommonMapper">     
+
+	<resultMap id="BaseResultMap" type="com.escape.model.ChurchMember">
+	    <id column="ID" jdbcType="INTEGER" property="id" />
+	    <result column="EMAIL" jdbcType="VARCHAR" property="email" />
+	    <result column="NAME" jdbcType="VARCHAR" property="name" />
+	    <result column="CHURCH_NAME" jdbcType="VARCHAR" property="churchName" />
+	    <result column="CHURCH_ROOT" jdbcType="VARCHAR" property="churchRoot" />
+	    <result column="CHURCH_CATEGORY" jdbcType="VARCHAR" property="churchCategory" />
+	    <result column="SEND_EMAIL_YN" jdbcType="CHAR" property="sendEmailYn" />
+	    <result column="SEND_ZC_YN" jdbcType="CHAR" property="sendZcYn" />
+	    <result column="DEL_YN" jdbcType="CHAR" property="delYn" />
+	    <result column="INS_DATE" jdbcType="TIMESTAMP" property="insDate" />
+	    <result column="UPD_DATE" jdbcType="TIMESTAMP" property="updDate" />
+  	</resultMap>
+
+    <sql id="Base_Column_List">
+	    ID, EMAIL, NAME, CHURCH_NAME, CHURCH_ROOT, CHURCH_CATEGORY, SEND_EMAIL_YN, SEND_ZC_YN, DEL_YN, INS_DATE, UPD_DATE
+	</sql>
+	
+    <select id="selectChurchMemberListByLike" parameterType="java.lang.String" resultMap="BaseResultMap">
+	    SELECT
+	    	<include refid="Base_Column_List" />
+	    FROM church_member
+	    
+	    WHERE 
+	    		NAME LIKE CONCAT('%',#{content},'%')
+	    	OR	
+	    		EMAIL LIKE CONCAT('%',#{content},'%')
+	    	OR 
+	    		CHURCH_NAME LIKE CONCAT('%',#{content},'%')
+	    	OR 
+	    		CHURCH_CATEGORY LIKE CONCAT('%',#{content},'%')
+  </select>
+     
+     
+</mapper>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+	<classPathEntry location="D:/DEV/LIBS/mysql-connector-java-5.1.10.jar"/>
+
+  <context id="context1">
+    <jdbcConnection connectionURL="jdbc:mysql://127.0.0.1:3306/mall?autoreconnect=true" 
+    	driverClass="com.mysql.jdbc.Driver" 
+    	password="ipnac" userId="root" />
+    <javaModelGenerator targetPackage="com.escape.model" targetProject="natural/src/main/java" />
+    <sqlMapGenerator targetPackage="com.escape.dao.mapper" targetProject="natural/src/main/java" />
+    <javaClientGenerator targetPackage="com.escape.dao" targetProject="natural/src/main/java" type="XMLMAPPER" />
+    
+    
+    
+    <!--  
+    <table schema="mall" tableName="member" />
+    <table schema="mall" tableName="church_member" />
+    <table schema="mall" tableName="nhn_time_dimension" />
+    <table schema="mall" tableName="nhn_category" />
+    <table schema="mall" tableName="nhn_rank_date" />
+    <table schema="mall" tableName="nhn_rank_week" />
+    <table schema="mall" tableName="nhn_rank_month" />
+    -->
+    <table schema="mall" tableName="lotto" />    
+    
+  </context>
+</generatorConfiguration>
